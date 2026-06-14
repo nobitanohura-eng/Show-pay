@@ -20,6 +20,53 @@ import { View, UserData, SupportTicket } from './types';
 
 // --- Shared Components ---
 
+const ShowPayLogo = ({ className = "w-full max-w-[220px] mx-auto mb-6" }: { className?: string }) => (
+  <div className={`relative flex flex-col items-center justify-center ${className}`}>
+    <svg viewBox="0 0 500 400" className="w-full h-auto">
+      {/* Accent coral shape (top left behind the top sweep) */}
+      <polygon points="120,55 210,55 180,110 100,110" fill="#FE2C55" />
+      
+      {/* Top arc of the "S" */}
+      <path 
+        d="M 185,55 
+           L 410,55 
+           C 410,55 435,100 390,135 
+           L 155,135 
+           C 125,135 155,55 185,55 Z" 
+         fill="#101452" 
+      />
+      
+      {/* Bottom arc of the "S" */}
+      <path 
+        d="M 170,220 
+           L 360,220 
+           C 385,220 375,280 300,280 
+           L 115,280 
+           L 75,345 
+           L 380,345 
+           C 425,345 460,290 425,220 
+           C 410,195 385,195 375,195
+           L 170,195 Z" 
+         fill="#101452" 
+      />
+      
+      {/* "SHOW PAY" bold centered text across the central zone */}
+      <text 
+        x="245" 
+        y="185" 
+        fontFamily="system-ui, -apple-system, sans-serif" 
+        fontWeight="900" 
+        fontSize="64" 
+        fill="#101452" 
+        letterSpacing="2"
+        textAnchor="middle"
+      >
+        SHOW PAY
+      </text>
+    </svg>
+  </div>
+);
+
 const Button = ({ 
   children, 
   onClick, 
@@ -92,15 +139,10 @@ const LoginView = ({ onNext }: { onNext: (phone: string, pass: string) => void }
   const isFormFilled = phoneNumber.length === 10 && password.length > 0;
 
   return (
-    <div className="p-6 h-full flex flex-col pt-12">
-      <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-2.5 mb-3">
-          <div className="w-12 h-12 bg-[#69A9E9] rounded-xl flex items-center justify-center shadow-lg shadow-[#69A9E9]/20">
-            <span className="text-white font-black text-2xl">S</span>
-          </div>
-          <span className="text-[#69A9E9] text-3xl font-black tracking-tight">SHOW PAY</span>
-        </div>
-        <h1 className="text-gray-400 font-bold text-xs tracking-[0.2em] uppercase">LOG IN</h1>
+    <div className="p-6 h-full flex flex-col pt-8">
+      <div className="text-center mb-8">
+        <ShowPayLogo />
+        <h1 className="text-gray-400 font-bold text-xs tracking-[0.2em] uppercase mt-2">LOG IN</h1>
       </div>
 
       <div className="flex-1">
