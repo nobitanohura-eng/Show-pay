@@ -93,8 +93,14 @@ const LoginView = ({ onNext }: { onNext: (phone: string, pass: string) => void }
 
   return (
     <div className="p-6 h-full flex flex-col pt-12">
-      <div className="text-center mb-16">
-        <h1 className="text-[#007AFF] font-bold text-xl tracking-wide">LOG IN</h1>
+      <div className="text-center mb-12">
+        <div className="flex items-center justify-center gap-2.5 mb-3">
+          <div className="w-12 h-12 bg-[#69A9E9] rounded-xl flex items-center justify-center shadow-lg shadow-[#69A9E9]/20">
+            <span className="text-white font-black text-2xl">S</span>
+          </div>
+          <span className="text-[#69A9E9] text-3xl font-black tracking-tight">SHOW PAY</span>
+        </div>
+        <h1 className="text-gray-400 font-bold text-xs tracking-[0.2em] uppercase">LOG IN</h1>
       </div>
 
       <div className="flex-1">
